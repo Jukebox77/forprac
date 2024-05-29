@@ -5,7 +5,7 @@ import win32gui
 
 ##########################################################
 
-# 원격 프로시저 호출 (RPC) 문제/ 특히 반복적인 파일 열기/저장 과정에서 한글이 불안정
+# # 원격 프로시저 호출 (RPC) 문제/ 특히 반복적인 파일 열기/저장 과정에서 한글이 불안정
 
 # # 작업 디렉토리 설정
 # os.chdir("C:/Users/user/Desktop/phthon/2_hg/sub")
@@ -21,7 +21,7 @@ import win32gui
 # win32gui.ShowWindow(hwnd, 0)
 
 # # 파일 경로 검사 모듈 등록
-# hwp.RegisterModule("FilePathCheckDLL", "FilePathCheckerModule")
+# hwp.RegisterModule("FilePathCheckDLL", "SecurityModule")
 
 # BASE_DIR = "C:/Users/user/Desktop/phthon/2_hg/sub"
 
@@ -47,7 +47,7 @@ for filename in os.listdir(BASE_DIR):
     if filename.endswith(".hwp"):
         hwp = win32.Dispatch("HwpFrame.HwpObject")
         
-        hwp.RegisterModule("FilePathCheckDLL", "FilePathCheckerModule")
+        hwp.RegisterModule("FilePathCheckDLL", "SecurityModule")
         hwp.Open(os.path.join(BASE_DIR, filename))
         
         # PDF로 저장

@@ -2,6 +2,11 @@ import os
 import win32com.client as win32
 import win32gui
 
+
+##########################################################
+
+# 원격 프로시저 호출 (RPC) 문제/ 특히 반복적인 파일 열기/저장 과정에서 한글이 불안정
+
 # # 작업 디렉토리 설정
 # os.chdir("C:/Users/user/Desktop/phthon/2_hg/sub")
 
@@ -30,6 +35,9 @@ import win32gui
 #         hwp.HParameterSet.HFileOpenSave.Format = "PDF"
 #         hwp.HAction.Execute("FileSaveAsPdf", hwp.HParameterSet.HFileOpenSave.HSet)
 
+###########################################################
+
+# 한글을 껐다가 다시 켜서 작업하는것
 import os
 import win32com.client as win32
 

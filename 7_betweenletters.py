@@ -8,7 +8,7 @@ def 한글_시작():
     """
     아래아한글을 시작하는 함수
     """
-    hwp = win32.Dispatch("hwpframe.hwpobject")  # 한/글 실행
+    hwp = win32.Dispatch("HwpFrame.HwpObject")  # 한/글 실행
     # hwp = win32.gencache.EnsureDispatch("hwpframe.hwpobject")  # 한/글 실행
     hwp.XHwpWindows.Item(0).Visible = True  # 한/글 프로그램 백그라운드 해제
     hwp.RegisterModule("FilePathCheckDLL", "SecurityModule")  # 보안모듈 등록
@@ -55,8 +55,8 @@ def 자간자동조정():
     while True:
         hwp.Run("MoveLineEnd")  # 라인의 끝으로 이동해서
         hwp.Run("MoveSelWordBegin")  # 끝에 걸쳐진 단어의 앞부분만 선택
-        if count >= 15:
-            print("15% 이상 자간조정으로, 원상복구함")
+        if count >= 10:
+            print("10% 이상 자간조정으로, 원상복구함")
             for _ in range(count): hwp.Run("Undo")
         앞부분길이 = 현재선택영역_글자수()  # 잘린 단어 앞부분 글자수 확인
         if 앞부분길이 == 0:  # 단어가 잘려있지 않으면 다음 라인으로 넘어감
